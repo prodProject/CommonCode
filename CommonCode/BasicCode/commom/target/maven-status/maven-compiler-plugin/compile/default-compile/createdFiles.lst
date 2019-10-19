@@ -1,0 +1,9 @@
+com\prod\basic\common\httpCommon\Formatter\RequestMethodEnumFormatter$1.class
+com\prod\basic\common\httpReqAndResp\HttpReqHandler.class
+com\prod\basic\common\httpCommon\Interfaces\IFormatter.class
+com\prod\basic\common\httpReqAndResp\HttpReqHandler$1.class
+com\prod\basic\common\httpCommon\Enums\RequestMethodEnum.class
+com\prod\basic\common\httpCommon\Formatter\RequestContentTypeEnumFormatter$1.class
+com\prod\basic\common\httpCommon\Formatter\RequestMethodEnumFormatter.class
+com\prod\basic\common\httpCommon\Enums\RequestContentTypeEnum.class
+com\prod\basic\common\httpCommon\Formatter\RequestContentTypeEnumFormatter.class

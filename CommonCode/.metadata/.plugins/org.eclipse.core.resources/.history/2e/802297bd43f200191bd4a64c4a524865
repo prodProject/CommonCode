@@ -1,0 +1,15 @@
+package com.prod.basic.common.httpReqAndResp;
+
+import com.google.gson.JsonObject;
+import com.prod.basic.common.httpCommon.Enums.RequestContentTypeEnum;
+import com.prod.basic.common.httpCommon.Enums.RequestMethodEnum;
+
+public class HttpReqHandler {
+
+	public JsonObject docall(RequestMethodEnum method, RequestContentTypeEnum contentType, String url,
+			JsonObject content) {
+
+		return null;
+	}
+
+}

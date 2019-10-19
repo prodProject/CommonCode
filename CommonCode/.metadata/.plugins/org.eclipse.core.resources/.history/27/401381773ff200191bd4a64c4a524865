@@ -1,0 +1,28 @@
+package com.prod.basic.common.httpCommon.Formatter;
+
+import com.prod.basic.common.httpCommon.Enums.RequestContentTypeEnum;
+import com.prod.basic.common.httpCommon.Interfaces.IFormatter;
+
+public class RequestContentTypeEnumFormatter implements IFormatter<String, RequestContentTypeEnum> {
+
+	public String format(RequestContentTypeEnum data) {
+		switch (data) {
+		case CONTENT_TYPE_FORM_URL_ENCODED:
+			break;
+		case CONTENT_TYPE_HTML:
+			break;
+		case CONTENT_TYPE_IMG_PNG:
+			break;
+		case CONTENT_TYPE_JSON:
+			break;
+		case CONTENT_TYPE_PDF:
+			break;
+		case CONTENT_TYPE_TEXT:
+			break;
+		default:
+			return "";
+
+		}
+	}
+
+}

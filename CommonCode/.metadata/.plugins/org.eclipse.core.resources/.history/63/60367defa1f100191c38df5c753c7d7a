@@ -1,0 +1,92 @@
+package com.prod.basic.commom;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.protocol.HTTP;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		String json = "{\\\"worker\\\":{\\\"dbInfo\\\":{\\\"lifeTime\\\":\\\"ACTIVE\\\"},\\\"name\\\":{\\\"firstName\\\":\\\"abcde\\\",\\\"lastName\\\":\\\"xyze\\\"},\\\"contactDetails\\\":{\\\"email\\\":{\\\"localPart\\\":\\\"abcde\\\",\\\"domain\\\":\\\"gmail.com\\\"},\\\"primaryMobile\\\":{\\\"code\\\":\\\"ISD_91\\\",\\\"number\\\":\\\"117347\\\"},\\\"secondryMobile\\\":[{\\\"code\\\":\\\"ISD_91\\\",\\\"number\\\":\\\"11747\\\"}]},\\\"type\\\":{\\\"personType\\\":\\\"WORKER\\\"},\\\"device\\\":{\\\"macId\\\":\\\"19:68:15:c4:77:ad\\\",\\\"osType\\\":\\\"ANDROID\\\",\\\"model\\\":\\\"Redmi\\\",\\\"deviceName\\\":\\\"H@cker\\\"}},\\\"password\\\":\\\"new\\\"}";
+		makePostJsonRequest(json);
+	}
+
+	protected void sendJson(final String json) {
+		Thread t = new Thread() {
+			public void run() {
+				HttpClient client = new DefaultHttpClient();
+				HttpConnectionParams.setConnectionTimeout(client.getParams(), 1000); // Timeout Limit
+				HttpResponse response;
+
+				try {
+					HttpPost post = new HttpPost(
+							"https://workertestservershubham.herokuapp.com/registrationWorkerMain");
+					StringEntity se = new StringEntity(json);
+					se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+					post.setEntity(se);
+					response = client.execute(post);
+
+					/* Checking response */
+					if (response != null) {
+						InputStream in = response.getEntity().getContent(); // Get the data in the entity
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("No connection");
+				}
+			}
+		};
+		t.start();
+	}
+
+	public static void makePostJsonRequest(String jsonString) {
+		HttpClient httpClient = new DefaultHttpClient();
+		try {
+			HttpPost postRequest = new HttpPost("https://workertestservershubham.herokuapp.com/registrationWorkerMain");
+			postRequest.setHeader("Content-type", "application/json");
+			StringEntity entity = new StringEntity(jsonString);
+
+			postRequest.setEntity(entity);
+
+			long startTime = System.currentTimeMillis();
+			HttpResponse response = httpClient.execute(postRequest);
+			long elapsedTime = System.currentTimeMillis() - startTime;
+			// System.out.println("Time taken : "+elapsedTime+"ms");
+
+			InputStream is = response.getEntity().getContent();
+			Reader reader = new InputStreamReader(is);
+			BufferedReader bufferedReader = new BufferedReader(reader);
+			StringBuilder builder = new StringBuilder();
+			while (true) {
+				try {
+					String line = bufferedReader.readLine();
+					if (line != null) {
+						builder.append(line);
+					} else {
+						break;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.println(builder.toString());
+			System.out.println("****************");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
+<fullyQualifiedTypeName name="java.io.Reader"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="java.io.DataOutputStream"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpCommon.Interfaces.IFormatter"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpCommon.Formatter.RequestContentTypeEnumFormatter"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpCommon.Formatter.RequestMethodEnumFormatter"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpReqAndResp.HttpReqHandler"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpCommon.Enums.RequestMethodEnum"/>
+<fullyQualifiedTypeName name="com.prod.basic.common.httpCommon.Enums.RequestContentTypeEnum"/>
+<fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
+<fullyQualifiedTypeName name="com.google.gson.JsonParser"/>
+<fullyQualifiedTypeName name="com.google.gson.JsonElement"/>
+</qualifiedTypeNameHistroy>

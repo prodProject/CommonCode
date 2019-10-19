@@ -1,0 +1,9 @@
+package com.prod.basic.common.httpCommon.Enums;
+
+public enum RequestMethod {
+	GET,
+	POST,
+	PUT,
+	DELETE,
+	PATCH,
+}

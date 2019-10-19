@@ -1,0 +1,6 @@
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpCommon\Enums\RequestMethodEnum.java
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpReqAndResp\HttpReqHandler.java
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpCommon\Formatter\RequestMethodEnumFormatter.java
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpCommon\Formatter\RequestContentTypeEnumFormatter.java
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpCommon\Enums\RequestContentTypeEnum.java
+D:\Project\CommonCode\BasicCode\commom\src\main\java\com\prod\basic\common\httpCommon\Interfaces\IFormatter.java

@@ -1,0 +1,46 @@
+package com.prod.basic.common.httpReqAndResp;
+
+import com.google.gson.JsonObject;
+import com.prod.basic.common.httpCommon.Enums.RequestContentTypeEnum;
+import com.prod.basic.common.httpCommon.Enums.RequestMethodEnum;
+
+public class HttpReqHandler {
+
+	private RequestMethodEnum m_method;
+	private RequestContentTypeEnum m_contentType;
+	private String m_url;
+	private JsonObject m_content;
+
+	public HttpReqHandler(RequestMethodEnum method, RequestContentTypeEnum contentType, String url,
+			JsonObject content) {
+		m_method = method;
+		m_content = content;
+		m_url = url;
+		m_content = content;
+	}
+
+	public JsonObject docall() {
+		switch (m_method) {
+		case DELETE:
+			break;
+		case GET:
+			break;
+		case PATCH:
+			break;
+		case POST:
+			return doPost();
+		case PUT:
+			break;
+		default:
+			break;
+
+		}
+		return null;
+	}
+
+	private JsonObject doPost() {
+
+		return null;
+	}
+
+}

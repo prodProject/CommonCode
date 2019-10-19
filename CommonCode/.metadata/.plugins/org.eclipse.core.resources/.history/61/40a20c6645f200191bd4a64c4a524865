@@ -1,0 +1,114 @@
+package com.prod.basic.common.httpReqAndResp;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.google.gson.JsonObject;
+import com.prod.basic.common.httpCommon.Enums.RequestContentTypeEnum;
+import com.prod.basic.common.httpCommon.Enums.RequestMethodEnum;
+
+public class HttpReqHandler {
+
+	private RequestMethodEnum m_method;
+	private RequestContentTypeEnum m_contentType;
+	private String m_url;
+	private JsonObject m_content;
+	private HttpURLConnection m_connection = null;
+	private InputStream m_inputstream = null;
+	private JSONParser m_parser;
+
+	public HttpReqHandler(RequestMethodEnum method, RequestContentTypeEnum contentType, String url,
+			JsonObject content) {
+		m_method = method;
+		m_content = content;
+		m_url = url;
+		m_content = content;
+		m_parser = new JSONParser();
+	}
+
+	public JsonObject docall() {
+		switch (m_method) {
+		case DELETE:
+			break;
+		case GET:
+			break;
+		case PATCH:
+			break;
+		case POST:
+			return doPost();
+		case PUT:
+			break;
+		default:
+			break;
+
+		}
+		return null;
+	}
+
+	private JsonObject doPost() {
+		try {
+			// Create connection
+			URL url = new URL("https://workertestservershubham.herokuapp.com/registrationWorkerMain");
+			m_connection = (HttpURLConnection) url.openConnection();
+			m_connection.setRequestMethod("POST");
+			m_connection.setRequestProperty("Content-Type", "application/json");
+			m_connection.setRequestProperty("Content-Length", Integer.toString(m_content.toString().getBytes().length));
+			m_connection.setUseCaches(false);
+			m_connection.setDoOutput(true);
+
+			// Send request
+			DataOutputStream wr = new DataOutputStream(m_connection.getOutputStream());
+			wr.writeBytes(m_content.toString());
+			wr.close();
+
+			// Get Response
+			try {
+				m_inputstream = m_connection.getInputStream();
+			} catch (IOException ioe) {
+				if (m_connection instanceof HttpURLConnection) {
+					HttpURLConnection httpConn = (HttpURLConnection) m_connection;
+					int statusCode = httpConn.getResponseCode();
+					if (statusCode != 200) {
+						m_inputstream = httpConn.getErrorStream();
+					}
+				}
+			}
+
+			BufferedReader rd = new BufferedReader(new InputStreamReader(m_inputstream));
+			StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
+			String line;
+			while ((line = rd.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
+			}
+			rd.close();
+			try {
+				return (JsonObject) m_parser.parse(response.toString());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return null;
+
+		} finally {
+			if (m_connection != null) {
+				m_connection.disconnect();
+			}
+		}
+		return null;
+	}
+
+}

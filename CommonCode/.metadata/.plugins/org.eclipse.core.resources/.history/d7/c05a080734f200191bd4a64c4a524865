@@ -1,0 +1,27 @@
+package com.prod.basic.common.httpCommon.Formatter;
+
+import com.prod.basic.common.httpCommon.Enums.RequestMethodEnum;
+import com.prod.basic.common.httpCommon.Interfaces.IFormatter;
+
+public class RequestMethodEnumFormatter implements IFormatter<String, RequestMethodEnum> {
+
+	public String format(RequestMethodEnum data) {
+		switch (data) {
+		case DELETE:
+			break;
+		case GET:
+			break;
+		case PATCH:
+			break;
+		case POST:
+			break;
+		case PUT:
+			break;
+		default:
+			break;
+
+		}
+		return null;
+	}
+
+}
